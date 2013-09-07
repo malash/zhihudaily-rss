@@ -40,7 +40,7 @@ function fetch_day($day) {
     if ($day === 0) {
         $api_url = 'http://news.at.zhihu.com/api/1.2/news/latest';
     } else {
-        $api_url = 'http://news.at.zhihu.com/api/1.2/news/before/' . date('Ymd', time() - ($day - 1) * 3600 * 24);
+        $api_url = 'http://news.at.zhihu.com/api/1.2/news/before/' . date('Ymd', time() - $day * 3600 * 24);
     }
     $content = json_decode(file_get_contents('http://news.at.zhihu.com/api/1.2/news/latest'), 1);
     $count_news = count($content['news']);
